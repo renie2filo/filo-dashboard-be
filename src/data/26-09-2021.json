@@ -1,0 +1,237 @@
+{
+    "activities_data": [{
+        "performed_at": "25-09-2021 23:30:58 +0000",
+        "ticket_id": 39489,
+        "performer_type": "user",
+        "performer_id": 48051747700,
+        "activity": {
+            "Device List": "-1",
+            "S/N": "N/A",
+            "OS Version": "N/A",
+            "App Version": "N/A",
+            "Phone Model": "N/A",
+            "User Id": "N/A",
+            "added_tags": ["mobile", "accoppiamentoandroid"],
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48051747700,
+            "source": 2,
+            "product": "Filo",
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "25-09-2021 23:31:54 +0000",
+        "ticket_id": 39489,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "Filo - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48051747700]
+            },
+            "Lingua": "Italiano"
+        }
+    }, {
+        "performed_at": "26-09-2021 07:19:11 +0000",
+        "ticket_id": 39476,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Automatically close resolved tickets after 48 hours"
+            },
+            "status": "Closed"
+        }
+    }, {
+        "performed_at": "26-09-2021 08:04:04 +0000",
+        "ticket_id": 39490,
+        "performer_type": "user",
+        "performer_id": 48051755356,
+        "activity": {
+            "Device List": "-1",
+            "S/N": "N/A",
+            "OS Version": "N/A",
+            "App Version": "N/A",
+            "Phone Model": "N/A",
+            "User Id": "N/A",
+            "added_tags": ["mobile", "filotag_pairing", "accoppiamentoandroid"],
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48051755356,
+            "source": 2,
+            "product": "Filo",
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "26-09-2021 08:05:07 +0000",
+        "ticket_id": 39490,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "Filo - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48051755356]
+            },
+            "Lingua": "Italiano"
+        }
+    }, {
+        "performed_at": "26-09-2021 08:06:48 +0000",
+        "ticket_id": 39491,
+        "performer_type": "user",
+        "performer_id": 48041411830,
+        "activity": {
+            "Motivo del contatto Tata": "Ordini e spedizioni",
+            "Ordini e spedizioni: richiesta": "Resi e sostituzioni",
+            "Ref and Rep Status": "Pending",
+            "User Segment": "Consumatore",
+            "Order Number": "N/A",
+            "S/N": "N/A",
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48041411830,
+            "source": 2,
+            "spam": true,
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "26-09-2021 09:12:09 +0000",
+        "ticket_id": 39492,
+        "performer_type": "user",
+        "performer_id": 48051757040,
+        "activity": {
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48051757040,
+            "source": 2,
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "26-09-2021 09:13:05 +0000",
+        "ticket_id": 39492,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "Ticket from calendly assigne to Tata product"
+            },
+            "added_tags": ["calendly"],
+            "product": "Tata",
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "26-09-2021 14:16:56 +0000",
+        "ticket_id": 39493,
+        "performer_type": "user",
+        "performer_id": 48051764412,
+        "activity": {
+            "Tata List": "-1",
+            "S/N": "N/A",
+            "OS Version": "N/A",
+            "App Version": "N/A",
+            "Phone Model": "N/A",
+            "User Id": "N/A",
+            "added_tags": ["mobile", "accoppiamentoandroid", "tata"],
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48051764412,
+            "source": 2,
+            "product": "Tata",
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "26-09-2021 14:17:33 +0000",
+        "ticket_id": 39493,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "RA - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48051764412]
+            },
+            "Lingua": "Italiano"
+        }
+    }, {
+        "performed_at": "26-09-2021 14:57:37 +0000",
+        "ticket_id": 39494,
+        "performer_type": "user",
+        "performer_id": 48051765338,
+        "activity": {
+            "Tata List": "-1",
+            "S/N": "N/A",
+            "OS Version": "N/A",
+            "App Version": "N/A",
+            "Phone Model": "N/A",
+            "User Id": "N/A",
+            "added_tags": ["mobile", "accoppiamentoandroid", "tata"],
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48051765338,
+            "source": 2,
+            "product": "Tata",
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "26-09-2021 14:58:39 +0000",
+        "ticket_id": 39494,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "RA - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48051765338]
+            },
+            "Lingua": "Italiano"
+        }
+    }, {
+        "performed_at": "26-09-2021 16:21:56 +0000",
+        "ticket_id": 39468,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Automatically close resolved tickets after 48 hours"
+            },
+            "status": "Closed"
+        }
+    }, {
+        "performed_at": "26-09-2021 19:07:43 +0000",
+        "ticket_id": 39495,
+        "performer_type": "user",
+        "performer_id": 48051771145,
+        "activity": {
+            "requester_id": 48051771145,
+            "status": "Open",
+            "source": 1,
+            "product": "Tata",
+            "priority": 1,
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "26-09-2021 19:08:47 +0000",
+        "ticket_id": 39495,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "RA - All tickets created - ENG"
+            },
+            "send_email": {
+                "requester_id": [48051771145]
+            },
+            "Lingua": "Inglese"
+        }
+    }],
+    "metadata": {
+        "start_at": "25-09-2021 22:00:00 +0000",
+        "end_at": "26-09-2021 21:59:59 +0000",
+        "activities_count": 15
+    }
+}

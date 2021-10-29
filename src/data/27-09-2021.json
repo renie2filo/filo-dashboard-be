@@ -1,0 +1,951 @@
+{
+    "activities_data": [{
+        "performed_at": "27-09-2021 02:52:47 +0000",
+        "ticket_id": 39496,
+        "performer_type": "user",
+        "performer_id": 48051779349,
+        "activity": {
+            "requester_id": 48051779349,
+            "status": "Open",
+            "source": 1,
+            "product": "Tata",
+            "priority": 1,
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "27-09-2021 02:53:48 +0000",
+        "ticket_id": 39496,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "RA - All tickets created - ENG"
+            },
+            "send_email": {
+                "requester_id": [48051779349]
+            },
+            "Lingua": "Inglese"
+        }
+    }, {
+        "performed_at": "27-09-2021 06:46:18 +0000",
+        "ticket_id": 39497,
+        "performer_type": "user",
+        "performer_id": 48051785795,
+        "activity": {
+            "requester_id": 48051785795,
+            "status": "Open",
+            "source": 1,
+            "product": "Tata",
+            "priority": 1,
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "27-09-2021 06:47:15 +0000",
+        "ticket_id": 39497,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "RA - All tickets created - ENG"
+            },
+            "send_email": {
+                "requester_id": [48051785795]
+            },
+            "Lingua": "Inglese"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:04:35 +0000",
+        "ticket_id": 39487,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Assistenza tecnica",
+            "Problema tecnico riscontrato - Tata": "Condivisione Tata Pad con altro smartphone",
+            "Tipo - Tata": "Problem",
+            "Categoria problema": "SW",
+            "Oggetto del problema": "App",
+            "status": "Pending",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:04:35 +0000",
+        "ticket_id": 39487,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48399918645,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 07:06:50 +0000",
+        "ticket_id": 39493,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Assistenza tecnica",
+            "Problema tecnico riscontrato - Tata": "Tata Pad non si collega allo smartphone",
+            "Tipo - Tata": "Problem",
+            "Categoria problema": "HW",
+            "status": "Pending",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:06:50 +0000",
+        "ticket_id": 39493,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48399919828,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 07:10:22 +0000",
+        "ticket_id": 39494,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Assistenza tecnica",
+            "Problema tecnico riscontrato - Tata": "Tata Pad non si collega allo smartphone",
+            "Tipo - Tata": "Problem",
+            "Categoria problema": "SW",
+            "Oggetto del problema": "App",
+            "S/N": "N/A",
+            "status": "Pending",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:10:22 +0000",
+        "ticket_id": 39494,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48399921691,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 07:11:58 +0000",
+        "ticket_id": 39492,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48399922600,
+                "type": 3
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 07:14:05 +0000",
+        "ticket_id": 39484,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Richiesta informazioni",
+            "Tipo - Tata": "Information",
+            "status": "Closed",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level",
+            "due_by": "01-10-2021 12:17:00 +0000"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:14:36 +0000",
+        "ticket_id": 39485,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Richiesta informazioni",
+            "Tipo - Tata": "Information",
+            "status": "Closed",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:15:05 +0000",
+        "ticket_id": 39486,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Richiesta informazioni",
+            "Tipo - Tata": "Information",
+            "status": "Closed",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:16:29 +0000",
+        "ticket_id": 39367,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "status": "Pending"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:16:29 +0000",
+        "ticket_id": 39367,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48399925205,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 07:17:40 +0000",
+        "ticket_id": 39496,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Richiesta informazioni",
+            "Tipo - Tata": "Information",
+            "status": "Closed",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:18:07 +0000",
+        "ticket_id": 39497,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Tata": "Richiesta informazioni",
+            "Tipo - Tata": "Information",
+            "status": "Closed",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:21:07 +0000",
+        "ticket_id": 39462,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Automatically RESOLVE \"pending\" tickets after 5 days"
+            },
+            "send_email": {
+                "requester_id": [48051577665]
+            },
+            "status": "Resolved"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:29:59 +0000",
+        "ticket_id": 39487,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48399932248,
+                "type": 3
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 07:40:30 +0000",
+        "ticket_id": 39487,
+        "performer_type": "user",
+        "performer_id": 48051723546,
+        "activity": {
+            "note": {
+                "id": 48399937800,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 07:40:30 +0000",
+        "ticket_id": 39487,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically reopen tickets when the customer responds"
+            },
+            "status": "Open"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:58:08 +0000",
+        "ticket_id": 39487,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "status": "Risolto con invio sondaggio"
+        }
+    }, {
+        "performed_at": "27-09-2021 07:58:08 +0000",
+        "ticket_id": 39487,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48399948479,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 08:17:11 +0000",
+        "ticket_id": 39487,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48399959806,
+                "type": 3
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 08:21:07 +0000",
+        "ticket_id": 39399,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Automatically close resolved tickets after 48 hours"
+            },
+            "status": "Closed"
+        }
+    }, {
+        "performed_at": "27-09-2021 08:21:07 +0000",
+        "ticket_id": 39441,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Automatically close resolved tickets after 48 hours"
+            },
+            "status": "Closed"
+        }
+    }, {
+        "performed_at": "27-09-2021 08:21:08 +0000",
+        "ticket_id": 39460,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Automatically RESOLVE \"pending\" tickets after 5 days"
+            },
+            "send_email": {
+                "requester_id": [48016920042]
+            },
+            "status": "Resolved"
+        }
+    }, {
+        "performed_at": "27-09-2021 08:32:46 +0000",
+        "ticket_id": 39224,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "status": "Follow up"
+        }
+    }, {
+        "performed_at": "27-09-2021 08:32:47 +0000",
+        "ticket_id": 39224,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48399969772,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 08:33:48 +0000",
+        "ticket_id": 39481,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48399970387,
+                "type": 1
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 08:33:49 +0000",
+        "ticket_id": 39481,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "status": "Resolved",
+            "agent_id": 48005706659,
+            "group": "Tech Support - 1 Level",
+            "due_by": "01-10-2021 10:35:49 +0000"
+        }
+    }, {
+        "performed_at": "27-09-2021 08:35:58 +0000",
+        "ticket_id": 39495,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48399971704,
+                "type": 1
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 08:35:59 +0000",
+        "ticket_id": 39495,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "status": "Resolved",
+            "agent_id": 48005706659,
+            "group": "Tech Support - 1 Level",
+            "due_by": "04-10-2021 08:00:58 +0000"
+        }
+    }, {
+        "performed_at": "27-09-2021 09:30:25 +0000",
+        "ticket_id": 39498,
+        "performer_type": "user",
+        "performer_id": 48051793176,
+        "activity": {
+            "Device List": "-1",
+            "S/N": "N/A",
+            "OS Version": "N/A",
+            "App Version": "N/A",
+            "Phone Model": "N/A",
+            "User Id": "N/A",
+            "added_tags": ["mobile", "filotag_pairing", "accoppiamentoandroid"],
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48051793176,
+            "source": 2,
+            "product": "Filo",
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "27-09-2021 09:31:27 +0000",
+        "ticket_id": 39498,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "Filo - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48051793176]
+            },
+            "Lingua": "Italiano"
+        }
+    }, {
+        "performed_at": "27-09-2021 10:20:20 +0000",
+        "ticket_id": 39459,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Filo - Automatically RESOLVE \"pending\" tickets after 5 days"
+            },
+            "send_email": {
+                "requester_id": [48051568139]
+            },
+            "status": "Resolved"
+        }
+    }, {
+        "performed_at": "27-09-2021 10:20:22 +0000",
+        "ticket_id": 39458,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "[ENG] Filo - Automatically RESOLVE \"pending\" tickets after 5 days"
+            },
+            "send_email": {
+                "requester_id": [48051566724]
+            },
+            "status": "Resolved"
+        }
+    }, {
+        "performed_at": "27-09-2021 10:34:26 +0000",
+        "ticket_id": 39499,
+        "performer_type": "user",
+        "performer_id": 48051796207,
+        "activity": {
+            "Motivo del contatto Tata": "Assistenza tecnica",
+            "Problema tecnico riscontrato - Tata": "Condivisione Tata Pad con altro smartphone",
+            "Ho preso visione dell'informativa privacy": true,
+            "status": "Open",
+            "source": 2,
+            "requester_id": 48051796207,
+            "product": "Tata",
+            "priority": 1,
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "27-09-2021 10:35:19 +0000",
+        "ticket_id": 39499,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "RA - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48051796207]
+            },
+            "Lingua": "Italiano"
+        }
+    }, {
+        "performed_at": "27-09-2021 10:35:19 +0000",
+        "ticket_id": 39499,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "Imposta priorità: motivo del contatto > assistenza tecnica >  Condivisione Tata Pad con altro sma..."
+            },
+            "priority": 2
+        }
+    }, {
+        "performed_at": "27-09-2021 11:16:05 +0000",
+        "ticket_id": 39499,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Tipo - Tata": "Problem",
+            "Categoria problema": "SW",
+            "Oggetto del problema": "App",
+            "status": "Pending",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level",
+            "due_by": "01-10-2021 10:35:05 +0000"
+        }
+    }, {
+        "performed_at": "27-09-2021 11:16:05 +0000",
+        "ticket_id": 39499,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48400078423,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 11:16:09 +0000",
+        "ticket_id": 39499,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48400078472,
+                "type": 3
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 11:25:19 +0000",
+        "ticket_id": 39493,
+        "performer_type": "user",
+        "performer_id": 48051764412,
+        "activity": {
+            "note": {
+                "id": 48400084665,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 11:25:20 +0000",
+        "ticket_id": 39493,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically reopen tickets when the customer responds"
+            },
+            "status": "Open"
+        }
+    }, {
+        "performed_at": "27-09-2021 12:51:07 +0000",
+        "ticket_id": 39493,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "status": "Pending"
+        }
+    }, {
+        "performed_at": "27-09-2021 12:51:07 +0000",
+        "ticket_id": 39493,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48400142931,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 13:00:43 +0000",
+        "ticket_id": 39490,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Filo": "Assistenza tecnica",
+            "Problema tecnico riscontrato": "Filo non si associa allo smartphone",
+            "Tipo - Filo": "Problem",
+            "status": "Pending",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level",
+            "due_by": "01-10-2021 08:00:43 +0000"
+        }
+    }, {
+        "performed_at": "27-09-2021 13:00:43 +0000",
+        "ticket_id": 39490,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48400149571,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 14:00:39 +0000",
+        "ticket_id": 39498,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "Motivo del contatto Filo": "Assistenza tecnica",
+            "Problema tecnico riscontrato": "Filo non si associa allo smartphone",
+            "Tipo - Filo": "Problem",
+            "status": "Pending",
+            "agent_id": 48016124040,
+            "group": "Tech Support - 1 Level",
+            "due_by": "01-10-2021 09:30:39 +0000"
+        }
+    }, {
+        "performed_at": "27-09-2021 14:00:39 +0000",
+        "ticket_id": 39498,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48400191877,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 14:11:55 +0000",
+        "ticket_id": 39498,
+        "performer_type": "user",
+        "performer_id": 48051793176,
+        "activity": {
+            "note": {
+                "id": 48400199718,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 14:11:56 +0000",
+        "ticket_id": 39498,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically reopen tickets when the customer responds"
+            },
+            "status": "Open"
+        }
+    }, {
+        "performed_at": "27-09-2021 14:24:36 +0000",
+        "ticket_id": 39439,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 3,
+                "rule": "Automatically RESOLVE \"pending\" tickets after 5 days"
+            },
+            "send_email": {
+                "requester_id": [48051385503]
+            },
+            "status": "Resolved"
+        }
+    }, {
+        "performed_at": "27-09-2021 14:44:52 +0000",
+        "ticket_id": 39498,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "status": "Pending"
+        }
+    }, {
+        "performed_at": "27-09-2021 14:44:52 +0000",
+        "ticket_id": 39498,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "note": {
+                "id": 48400223631,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 15:00:23 +0000",
+        "ticket_id": 39493,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48400234507,
+                "type": 3
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 15:09:04 +0000",
+        "ticket_id": 39466,
+        "performer_type": "user",
+        "performer_id": 48020185221,
+        "activity": {
+            "status": "Follow up"
+        }
+    }, {
+        "performed_at": "27-09-2021 15:09:05 +0000",
+        "ticket_id": 39466,
+        "performer_type": "user",
+        "performer_id": 48020185221,
+        "activity": {
+            "note": {
+                "id": 48400239995,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 15:13:56 +0000",
+        "ticket_id": 39500,
+        "performer_type": "user",
+        "performer_id": 48051810045,
+        "activity": {
+            "Device List": "-1",
+            "S/N": "N/A",
+            "OS Version": "N/A",
+            "App Version": "N/A",
+            "Phone Model": "N/A",
+            "User Id": "N/A",
+            "added_tags": ["mobile", "accoppiamentoandroid"],
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48051810045,
+            "source": 2,
+            "product": "Filo",
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "27-09-2021 15:14:46 +0000",
+        "ticket_id": 39500,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "Filo - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48051810045]
+            },
+            "Lingua": "Italiano"
+        }
+    }, {
+        "performed_at": "27-09-2021 15:23:18 +0000",
+        "ticket_id": 39439,
+        "performer_type": "user",
+        "performer_id": 48051385503,
+        "activity": {
+            "note": {
+                "id": 48400248778,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 15:23:19 +0000",
+        "ticket_id": 39439,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically reopen tickets when the customer responds"
+            },
+            "thank_you_note": false,
+            "status": "Open"
+        }
+    }, {
+        "performed_at": "27-09-2021 15:32:34 +0000",
+        "ticket_id": 39466,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "note": {
+                "id": 48400254693,
+                "type": 3
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 16:01:13 +0000",
+        "ticket_id": 39439,
+        "performer_type": "user",
+        "performer_id": 48016124040,
+        "activity": {
+            "status": "Pending"
+        }
+    }, {
+        "performed_at": "27-09-2021 16:04:00 +0000",
+        "ticket_id": 39488,
+        "performer_type": "user",
+        "performer_id": 48020185221,
+        "activity": {
+            "Motivo del contatto Filo": "Assistenza tecnica",
+            "Tipo - Filo": "Problem",
+            "Categoria Problema": "SW",
+            "Oggetto del problema": "App",
+            "User Segment": "Consumatore",
+            "status": "Pending",
+            "group": "Tech Support - 1 Level",
+            "due_by": "01-10-2021 08:00:00 +0000"
+        }
+    }, {
+        "performed_at": "27-09-2021 16:04:01 +0000",
+        "ticket_id": 39488,
+        "performer_type": "user",
+        "performer_id": 48020185221,
+        "activity": {
+            "note": {
+                "id": 48400274123,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 16:04:02 +0000",
+        "ticket_id": 39488,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically assign ticket to first responder"
+            },
+            "agent_id": 48020185221
+        }
+    }, {
+        "performed_at": "27-09-2021 17:32:26 +0000",
+        "ticket_id": 39501,
+        "performer_type": "user",
+        "performer_id": 48005706659,
+        "activity": {
+            "Lingua": "Inglese",
+            "group": "Tech Support - 1 Level",
+            "source": 10,
+            "status": "Pending",
+            "requester_id": 48050437606,
+            "agent_id": 48005706659,
+            "product": "Filo",
+            "priority": 1,
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "27-09-2021 17:42:06 +0000",
+        "ticket_id": 39399,
+        "performer_type": "user",
+        "performer_id": 48051142163,
+        "activity": {
+            "note": {
+                "id": 48400328544,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 17:42:07 +0000",
+        "ticket_id": 39399,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically reopen tickets when the customer responds"
+            },
+            "thank_you_note": false,
+            "status": "Open"
+        }
+    }, {
+        "performed_at": "27-09-2021 17:43:20 +0000",
+        "ticket_id": 39224,
+        "performer_type": "user",
+        "performer_id": 48048082790,
+        "activity": {
+            "note": {
+                "id": 48400329141,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 17:43:21 +0000",
+        "ticket_id": 39224,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically reopen tickets when the customer responds"
+            },
+            "status": "Open"
+        }
+    }, {
+        "performed_at": "27-09-2021 18:36:44 +0000",
+        "ticket_id": 39501,
+        "performer_type": "user",
+        "performer_id": 48050437606,
+        "activity": {
+            "note": {
+                "id": 48400354998,
+                "type": 0
+            }
+        }
+    }, {
+        "performed_at": "27-09-2021 18:36:45 +0000",
+        "ticket_id": 39501,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 4,
+                "rule": "Automatically reopen tickets when the customer responds"
+            },
+            "status": "Open"
+        }
+    }, {
+        "performed_at": "27-09-2021 20:36:13 +0000",
+        "ticket_id": 39502,
+        "performer_type": "user",
+        "performer_id": 48037768289,
+        "activity": {
+            "Device List": "2",
+            "OS Version": "N/A",
+            "App Version": "N/A",
+            "Phone Model": "N/A",
+            "User Id": "N/A",
+            "added_tags": ["iOS", "mobile", "menu"],
+            "priority": 2,
+            "status": "Open",
+            "requester_id": 48037768289,
+            "source": 2,
+            "product": "Filo",
+            "new_ticket": true
+        }
+    }, {
+        "performed_at": "27-09-2021 20:37:07 +0000",
+        "ticket_id": 39502,
+        "performer_type": "system",
+        "activity": {
+            "automation": {
+                "type": 1,
+                "rule": "Filo - Tutti i ticket creati"
+            },
+            "send_email": {
+                "requester_id": [48037768289]
+            },
+            "Lingua": "Italiano"
+        }
+    }],
+    "metadata": {
+        "start_at": "26-09-2021 22:00:00 +0000",
+        "end_at": "27-09-2021 21:59:59 +0000",
+        "activities_count": 78
+    }
+}
