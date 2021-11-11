@@ -9,6 +9,7 @@ const router = express.Router();
 router.use('/fe', fe_data_router)
 
 router.route('/').get(async (req, res, next) => {
+    console.log('ciao')
     try {
         res.status(200).send('Test Connection Successfull')
     } catch (error) {

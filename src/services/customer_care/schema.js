@@ -6,12 +6,25 @@ const Customer_Collection = mongoose.createConnection(process.env.MONGODB_CC)
 const CustomerModel = new Schema({
     _id: {type: 'String'},
     data: {
-        received: {type: 'Number'},
+        byType: {
+            'No Value': {type: 'Number'},
+            'Richiesta Informazioni': {type: 'Number'},
+            'Ordini e Spedizioni': {type: 'Number'},
+            'Assistenza Tecnica': {type: 'Number'},
+        },
+        byStatus: {
+            'Risolto con invio sondaggio': {type: 'Number'},
+            'Open': {type: 'Number'},
+            'Pending': {type: 'Number'},
+            'Follow up': {type: 'Number'},
+            'Resolved': {type: 'Number'},
+            'Closed': {type: 'Number'}
+        },
         unassigned: {type: 'Number'},
-        byType: [[{type: 'String'}, {type: 'Number'}]],
-        byStatus: [[{type: 'String'}, {type: 'Number'}]],
-        received_t: [{type: 'Number'}, {type: 'Number'}],
-        resolved_t: [{type: 'Number'}, {type: 'Number'}]
+        received: {type: 'Number'},
+        resolved: {type: 'Number'},
+        fr_time:{type: 'Number'},
+        resolution_time:{type: 'Number'},
     }
 })
 
