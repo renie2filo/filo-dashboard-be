@@ -189,43 +189,13 @@ const getRangeData = async (range, toTime, monitorOrAlarm) => {
         range.map(async day => {
             const data = await Tata_Brain_DB.findById(day.day)
             let res
-            if(!data && day.day === today){
+            if(!data){
                 const hours = []
                 const date = dateObj(day.day, '')
                 const url = getUrl(date)
                 const dayResult = await fetchData(url)
                 // console.log(dayResult)
                 for (let i = 0; i < parseInt(toTime); i++) {
-                    let hour = i < 10 ? `0${i}`: `${i}`
-                    let hourData = dayResult.find(data => data.event_hour_gmt === hour)
-                    let checkArray = checkAlarms(hourData)
-                    let body 
-                    if (hourData){
-                        if (checkArray.length > 0) {
-                            body = hourObj(hourData)
-                            checkArray.map(target => body[target] = '0')
-                            hours.push(body)
-                        } else {
-                            body = hourObj(hourData)
-                            hours.push(body)
-                        }
-                    } else {
-                        body = emptyHour(`${day.day} ${hour}:00`, hour)
-                        hours.push(body)
-                    }
-                }
-                await tata_brain_saveDB(day.day, {hours: hours})
-                res = {
-                    _id: day.day,
-                    hours: hours
-                }
-            } else if (!data && day.day != today){
-                const hours = []
-                const date = dateObj(day.day, '')
-                const url = getUrl(date)
-                const dayResult = await fetchData(url)
-                // console.log(dayResult)
-                for (let i = 0; i < 24; i++) {
                     let hour = i < 10 ? `0${i}`: `${i}`
                     let hourData = dayResult.find(data => data.event_hour_gmt === hour)
                     let checkArray = checkAlarms(hourData)

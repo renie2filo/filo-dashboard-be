@@ -30,40 +30,24 @@ const andamento_tot_range = {
     range: "D3:O4"
 }
 
-// const produzioni_2021 = {
-//     sheet: "Consuntivo",
-//     range: "C36:O45"
-// }
 const produzioni_2021 = {
-    sheet: "All",
-    range: "C300:O308"
+    sheet: "Consuntivo",
+    range: "C36:O45"
 }
 
-// const produzioni_tot = {
-//     sheet: "Consuntivo",
-//     range: "R35:S38"
-// }
 const produzioni_tot = {
     sheet: "Consuntivo",
     range: "R35:S38"
 }
 
-// const top_cp ={
-//     sheet: "Analisi",
-//     range: "G13:H18"
-// }
 const top_cp ={
-    sheet: "All",
-    range: "G320:H325"
+    sheet: "Analisi",
+    range: "G13:H18"
 }
 
-// const oda = {
-//     sheet: "Situazione Attuale",
-//     range: "I88:J96"
-// }
 const oda = {
-    sheet: "All",
-    range: "I88:J97"
+    sheet: "Situazione Attuale",
+    range: "I88:J96"
 }
 
 const produzioni_2021_time = (data) => {
@@ -82,9 +66,7 @@ const produzioni_2021_time = (data) => {
 }
 
 const get_production_tot = async () => {
-    // const {values} = await sheet_getData(process.env.PRODUZIONI_2021, produzioni_tot)
-    const {values} = await sheet_getData(process.env.SHEET_XLSX, produzioni_tot)
-    console.log('get')
+    const {values} = await sheet_getData(process.env.PRODUZIONI_2021, produzioni_tot)
     let result = {}
     result[values[0][0]] = parseInt(values[0][1])
     result[values[1][0]] = parseInt(values[1][1])
@@ -93,16 +75,14 @@ const get_production_tot = async () => {
 }
 
 const get_production = async () => {
-    // const response = await sheet_getData(process.env.PRODUZIONI_2021, produzioni_2021)
-    const response = await sheet_getData(process.env.SHEET_XLSX, produzioni_2021)
+    const response = await sheet_getData(process.env.PRODUZIONI_2021, produzioni_2021)
     const data = produzioni_2021_time(response)
     
     return data
 }
 
 const get_top_cp = async () => {
-    // const {values} = await sheet_getData(process.env.TOP_5_CP, top_cp)
-    const {values} = await sheet_getData(process.env.SHEET_XLSX, top_cp)
+    const {values} = await sheet_getData(process.env.TOP_5_CP, top_cp)
     const columns = [
         {
             text: 'Tipo',
@@ -114,13 +94,16 @@ const get_top_cp = async () => {
         }
     ]
     let array = values.map(v => {
-        const charToremove = (char, str) => {
+        const charToremove = (chars, str) => {
             let newStr = str
-            newStr = newStr.substring(0, str.indexOf(char))
-            let value = Math.round(parseInt(newStr) / 100) / 10
+            chars.forEach(c => {
+                newStr = newStr.split(c).join('')
+            })
+            newStr = newStr.substring(0, (newStr.length - 3))
+            let value = Math.round(parseInt(newStr) / 10) / 10
             return value
         }
-        let newV = charToremove(',', v[1])
+        let newV = charToremove(['.',' ','€', ','], v[1])
         return [v[0], newV]
     })
     return [{
@@ -131,8 +114,7 @@ const get_top_cp = async () => {
 }
 
 const get_oda = async () => {
-    // const {values} = await sheet_getData(process.env.ODA, oda)
-    const {values} = await sheet_getData(process.env.SHEET_XLSX, oda)
+    const {values} = await sheet_getData(process.env.ODA, oda)
     // console.log(values)
     const columns = [
         {

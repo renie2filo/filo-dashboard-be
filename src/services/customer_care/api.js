@@ -1,105 +1,315 @@
-import fetch from 'node-fetch';
-import CC_DB from './schema.js'
-import {compareDates, diff} from './api-tools.js'
+import fetch from 'node-fetch'
+import {
+    current_week,
+    last_week,
+    currentDate
+} from '../../utilities/datetime/index.js'
+import {
+    grafana_table,
+    filters_status_values,
+    filters_type_values,
+    grafana_columns1,
+    grafana_rows,
+    url_byday,
+    url_byday_activity
+} from '../../utilities/api_tools.js'
 
-const baseUrl = process.env.FRESHDESK_URL
-const activityUrl = process.env.FRESHDESK_ACTIVITY_URL
-const key = process.env.FRESHDESK_API_KEY
+import { cc_saveDB, cc_updateDB } from '../../utilities/db/utilities.js'
+
+import Customer_Collection from './schema.js'
+
+const base_url = process.env.FRESHDESK_URL
 
 const headers = {
-    'Authorization': 'Basic ' + Buffer.from(`${key}:x`).toString('base64')
+    'Authorization': 'Basic ' + Buffer.from(`${process.env.FRESHDESK_API_KEY}:x`).toString('base64')
 }
 
-const getTickets = async (date) => {
-    const url = baseUrl + `/search/tickets?query="created_at:%27${date}%27"`
-    const response = await fetch(url, {headers: headers})
-    const result = await response.json()
+const updateDB_obj = (field, value) => {
+    let body = {
+        data:{}
+    }
+    body.data[field] = value
+    return body
+}
+
+const get_fetch = async (url) => {
+    let result
+    const response = await fetch(url)
+    if (response.status !== 200) result = undefined
+    else result = response.json()
     return result
 }
 
-const statsTickets = async (date) => {
-    const url = baseUrl + `/tickets?include=stats&updated_since=${date}&per_page=100`
-    const response = await fetch(url, {headers: headers})
-    const result = await response.json()
-    return result
-}
-
-const activityTickets = async (date) => {
-    const url = activityUrl + `?created_at=${date}`
-    const response = await fetch(url, {headers: headers})
-    const result = await response.json()
-    let list
-    if (result.message === 'file_not_found'){
-        list = null
-    } else {
-        const activity_res = await fetch(result.export[0].url)
-        const activity_result = await activity_res.json()
-        list = activity_result
-    }
-    return list
-}
-
-
-const getUnassigned = async (ticketsArray) => {
-    const unassigned = ticketsArray.filter(ticket => ticket.responder_id === null).map(ticket => ticket.responder_id)
-    return unassigned.length
-}
-
-const getResolved = async (ticketsArray, date) => {
-    const list = ticketsArray.map(ticket => {return{id: ticket.id, stats:ticket.stats}})
-    const resolved = list.filter(ticket => {if (ticket.stats.resolved_at) return ticket.stats.resolved_at.substring(0,10) === date})
-    return resolved.length
-}
-
-const getByType = async (ticketsArray) => {
-    const type = ticketsArray.map(ticket => {return{id:ticket.id, type:ticket.custom_fields.cf_motivo_del_contatto_def}})
-    const obj = {
-        "No Value": type.filter(ticket => ticket.type === null).length,
-        "Richiesta Informazioni" : type.filter(ticket => ticket.type === "Richiesta informazioni").length,
-        "Ordini e Spedizioni": type.filter(ticket => ticket.type === "Ordini e spedizioni").length,
-        "Assistenza Tecnica": type.filter(ticket => ticket.type === "Assistenza tecnica").length,
-    }
-    return obj
-}
-
-const getByStatus = async (ticketsArray) => {
-    let final=[]
-    const list = ticketsArray.map(ticket => {
-        if (ticket.activity.status) return {id: ticket.ticket_id, status: ticket.activity.status, activity: ticket.performed_at.substring(11, 19)}
-    }).filter(ticket => ticket !== null && ticket !== undefined)
-    list.map(ticket => {
-        if (final.length > 0) {
-            let check = final.find(item => item.id === ticket.id)
-            if (check && check !== undefined){
-                let result = compareDates(check, ticket)
-                final = final.filter(item => item !== check)
-                final.push(result)
-            } else final.push(ticket)
-        } else final.push(ticket)
+const get_data = async (url) => {
+    let result
+    const response = await fetch(url, {
+        headers
     })
-    const obj = {
-        "Risolto con invio sondaggio" : final.filter(ticket => ticket.status === 'Risolto con invio sondaggio').length,
-        "Open" : final.filter(ticket => ticket.status === 'Open').length,
-        "Pending" : final.filter(ticket => ticket.status === 'Pending').length,
-        "Follow up": final.filter(ticket => ticket.status === 'Follow up').length,
-        "Resolved" : final.filter(ticket => ticket.status === 'Resolved').length,
-        "Closed" : final.filter(ticket => ticket.status === 'Closed').length,
+    if(response.statusCode !== 200) result = undefined 
+    else result = response.json()
+    return result
+}
+
+const get_tickets_dayxday = async (week) => {
+    const current_tickets = await get_received_tickets(week)
+    const url = (qty) => base_url + `/tickets?per_page=${qty}`
+    const current_tickets_tot = current_tickets.map(ticket => ticket[0]).reduce((a, b) => a + b, 0)
+    const current_result = await get_data(url(current_tickets_tot))
+    return current_result
+}
+
+const getTickets = async (range) => {
+    const result = await Promise.all(
+        range.map(async day => {
+            const res = await get_data(url_byday(day.day))
+            return res
+        })
+    )
+    return result
+}
+
+const get_received_tickets = async (range) => {
+    const result = await Promise.all(
+        range.map(async (day) => {
+            let data = await Customer_Collection.findById(day.day)
+            let result
+            // console.log(data)
+            if (!data) {
+                let result
+                const res = await get_data(url_byday(day.day))
+                res === undefined ? result = [0, parseInt(day.timestamp)] : result = [res.total, parseInt(day.timestamp)] 
+                let body = {data: {received_t: result}}
+                const newData = await cc_saveDB(day.day, body)
+            } else if (data.data.received_t.length < 1) {
+                const res = await get_data(url_byday(day.day))
+                res === undefined ? result = [0, parseInt(day.timestamp)] : result = [res.total, parseInt(day.timestamp)] 
+                let body = {data:{...data.data}}
+                body.data.received_t = result
+                await cc_updateDB(day.day, body)
+            } else result = data.data.received_t
+            return result
+        })
+    )
+    return result
+}
+
+const get_resolved_tickets = async (range) => {
+    const result = await Promise.all(
+        range.map(async day => {
+            let data = await Customer_Collection.findById(day.day)
+            let result
+            if (!data) {
+                const activity_result = await get_data(url_byday_activity(day.day))
+                let res
+                if (activity_result !== undefined && activity_result.export !== undefined) {
+                    const activity_log_result = await get_fetch(activity_result.export[0].url)
+                    const resolved = await activity_log_result.activities_data.filter(log => log.activity.status === "Resolved")
+                    res = resolved.length
+                } else {
+                    res = 0
+                }
+                result = [res, parseInt(day.timestamp)]
+                let body = {data:{resolved_t: result}}
+                await cc_saveDB(day.day, body)
+            } else if (data.data.resolved_t.length < 1){
+                const activity_result = await get_data(url_byday_activity(day.day))
+                let res
+                if (activity_result !== undefined && activity_result.export !== undefined) {
+                    const activity_log_result = await get_fetch(activity_result.export[0].url)
+                    const resolved = await activity_log_result.activities_data.filter(log => log.activity.status === "Resolved")
+                    res = resolved.length
+                } else {
+                    res = 0
+                }
+                result = [res, parseInt(day.timestamp)]
+                let body = {data: {...data.data}}
+                body.data.resolved_t = result
+                await cc_updateDB(day.day, body)
+            } else result = data.data.resolved_t 
+            return result
+        })
+    )
+    return result
+}
+
+
+const get_tickets_byType = async (range) => {
+    let new_array = []
+    let res = {}
+    filters_type_values.map(value => res[value] = 0)
+    const resArray = await Promise.all(
+        range.map(async day => {
+            const data = await Customer_Collection.findById(day.day)
+            if (!data) {
+                const url = base_url + `/search/tickets?query="updated_at:%27${day.day}%27"`
+                const res = await get_data(url)
+                if(res !== undefined){
+                    const filters_result = filters_type_values.map(value => {
+                        const filtered_tickets = res.results.filter(log => log.custom_fields["cf_motivo_del_contatto_def"] === value)
+                        return filtered_tickets.length
+                    })
+                    const rows = grafana_rows(filters_type_values, filters_result)
+                    let body = {
+                        data: {byType: rows}
+                    }
+                    await cc_saveDB(day.day, body)
+                }
+            } else if (data.data.byType.length === 0){
+                const url = base_url + `/search/tickets?query="updated_at:%27${day.day}%27"`
+                const res = await get_data(url)
+                let body = {
+                    data: {...data.data}
+                }
+                if(res !== undefined){
+                    const filters_result = filters_type_values.map(value => {
+                        const filtered_tickets = res.results.filter(log => log.custom_fields["cf_motivo_del_contatto_def"] === value)
+                        return filtered_tickets.length
+                    })
+                    const rows = grafana_rows(filters_type_values, filters_result)
+                    body.data.byType = rows
+                } else {
+                    body.data.byType = filters_type_values.map(v => [v, 0])
+                }
+                await cc_updateDB(day.day, body)
+            } else {
+                filters_type_values.map((type, index) => {
+                    res[type] = res[type] + parseInt(data.data.byType[index][1])
+                })
+            }
+        })
+    )
+    let rows
+    if (new_array.length > 0) {
+        res = filter_handler(new_array)
+        rows = grafana_rows(filters_type_values, res)
+    } else {
+        let values = Object.values(res)
+        rows = filters_type_values.map((type, index) => [type, values[index]]) 
     }
-    return obj
+    const data = grafana_table(grafana_columns1, rows)
+    return data
 }
 
-const getFR = async (ticketsArray) => {
-    const list = ticketsArray.map(ticket => {return{id: ticket.id, first_response: ticket.stats.first_responded_at, created_at: ticket.created_at}}).filter(ticket => ticket.first_response !== null)
-    let avg = list.reduce((acc, item) => acc + diff(item.first_response, item.created_at),0)
-    avg = Math.floor(avg / list.length)
-    return avg
+const filter_handler = (array) => filters_status_values.map(value => {
+    const filtered_tickets = array.filter(log => {
+        if (log.activity["status"] === value) {
+            return log
+        }
+    })
+    return filtered_tickets.length
+})
+
+
+const get_tickets_byStatus = async (range) => {
+    let new_array = []
+    let res = {}
+    filters_status_values.map(value => res[value] = 0)
+    const result = await Promise.all(
+        range.map(async day => {
+            let data = await Customer_Collection.findById(day.day)
+            if(!data){
+                const activity_result = await get_data(url_byday_activity(day.day))
+                if (activity_result.export !== undefined) {
+                    const activity_log_result = await get_fetch(activity_result.export[0].url)
+                    const unique_ticket = await uniqByKeepLast(activity_log_result.activities_data, ticket => ticket.ticket_id)
+                    new_array = [...new_array, ...unique_ticket]
+                    let byStatus = grafana_rows(filters_status_values, filter_handler(unique_ticket))
+                    let body = {data: {byStatus: byStatus}}
+                    await cc_saveDB(day.day, body)
+                }
+            } else if (data.data.byStatus.length === 0){
+                const activity_result = await get_data(url_byday_activity(day.day))
+                if (activity_result !==undefined && activity_result.export !== undefined) {
+                    const activity_log_result = await get_fetch(activity_result.export[0].url)
+                    let body = {data:{...data.data}}
+                    if (activity_log_result !== undefined) {
+                        const unique_ticket = await uniqByKeepLast(activity_log_result.activities_data, ticket => ticket.ticket_id)
+                        new_array = [...new_array, ...unique_ticket]
+                        let byStatus = grafana_rows(filters_status_values, filter_handler(unique_ticket))
+                        body.data.byStatus = byStatus
+                    } else {
+                        body.data.byStatus = filters_type_values.map(v => [v, 0])
+                    }
+                    await cc_updateDB(day.day, body)
+                }
+            } else{
+                filters_status_values.map((status, index) => {
+                    res[status] = res[status] + parseInt(data.data.byStatus[index][1])
+                })
+            }
+        })
+    )
+        let rows
+    if (new_array.length > 0) {
+        res = filter_handler(new_array)
+        rows = grafana_rows(filters_status_values, res)
+    } else {
+        let values = Object.values(res)
+        rows = filters_status_values.map((status, index) => [status, values[index]]) 
+    }
+    const data = grafana_table(grafana_columns1, rows)
+    return data
 }
 
-const getResolution = async (ticketsArray) => {
-    const list = ticketsArray.map(ticket => {return{id: ticket.id, resolved: ticket.stats.resolved_at, created_at: ticket.created_at}}).filter(ticket => ticket.resolved !== null)
-    let avg = list.reduce((acc, item) => acc + diff(item.first_response, item.created_at),0)
-    avg = Math.floor(avg / list.length)
-    return avg
+const get_tickets_unassigned = async () => {
+    const current_result = await get_tickets_dayxday(current_week)
+    const last_result = await Promise.all(
+        last_week.map(async day => {
+            const single_result = await get_data(url_byday(day.day))
+            const unassigned = await single_result.results.filter(log => log.responder_id === null)
+            return {
+                tot: single_result.results.length,
+                unassigned: unassigned.length
+            }
+        })
+    )
+    const last_week_result = await last_result.reduce((a, b) => a + b.unassigned, 0)
+    const current_week_result = current_result.filter(log => log.responder_id === null)
+    // const percentage = last_week_result * 100 / current_week_result.length
+    
+    const rows = [
+        ["Last Week Unassigned", last_week_result],
+        ["Current Week Unassigned", current_week_result.length]
+    ]
+    const data = grafana_table(grafana_columns1, rows)
+    return data
 }
 
-export {getUnassigned, getResolved, getByType, getByStatus, getTickets, statsTickets, activityTickets, getFR, getResolution}
+const get_comparison_received = async () => {
+    const current_result = await get_tickets_dayxday(current_week)
+    const last_result = await Promise.all(
+        last_week.map(async day => {
+            const single_result = await get_data(url_byday(day.day))
+            const unassigned = await single_result.results.filter(log => log.responder_id === null)
+            return {
+                tot: single_result.results.length,
+                unassigned: unassigned.length
+            }
+        })
+    )
+    const last_week_received = await last_result.reduce((a, b) => a + b.tot, 0)
+    const rows = [
+        ["Last Week Received", last_week_received],
+        ["Current Week Received", current_result.length]
+    ]
+    const data = grafana_table(grafana_columns1, rows)
+    return data
+}
+
+function uniqByKeepLast(a, key) {
+    return [
+        ...new Map(
+            a.map(x => [key(x), x])
+        ).values()
+    ]
+}
+
+export {
+    get_received_tickets,
+    get_resolved_tickets,
+    get_tickets_byType,
+    get_tickets_byStatus,
+    get_tickets_unassigned,
+    get_comparison_received,
+    getTickets
+}
